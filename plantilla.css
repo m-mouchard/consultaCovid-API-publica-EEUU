@@ -51,11 +51,17 @@ body {
     margin: 10px;
     padding: 10px 13px; /* Espaciado dentro del input */
     font-size: 15px;
+    color: #fff;
+    background-color: #ff6f61;
     border: none; /* Sin borde */
     border-radius: 20px; /* Bordes redondeados */
     box-sizing: border-box; /* Incluye el padding y el borde en el ancho y alto total */
     cursor: pointer; /* Cambia el cursor al pasar sobre el input */
     outline: none; /* Quita el contorno al enfocar el input */
+}
+
+.contenedor p input:hover {
+    background-color: #c3655c; /* Cambio de color al pasar el cursor */
 }
 
 .cuerpo {
@@ -69,6 +75,6 @@ body {
 }
 
 .columna p{
-    font-size: 13px;
+    font-size: 16px;
     color: #fff;
 }

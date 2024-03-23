@@ -9,19 +9,23 @@
 <body>
     <div class="contenedor">
         <p> Consulta los datos del covid en Estados Unidos entre las fechas 13/01/2020 y 07/03/2021</p>
-        <p class = "textoPlano">Introduce la fecha: <br>
+        <p class = "textoPlano">Introduce la fecha a consultar <br>
             <input id="fechaConsulta" type="date"><br>
             <button id="consultarFecha" type="button"> Consultar fecha</button>
         </p>
         <div class="cuerpo">
             <div class="columna">
               <!-- Contenido de la primera columna -->
-              <p id="columnaIzq">Contenido de la primera columna: </p>
+              <p id="columnaIzq">Nº de muertes en ese día:</p>
             </div>
             <div class="columna">
               <!-- Contenido de la segunda columna -->
-              <p id="columnaDer">Contenido de la segunda columna: </p>
+              <p id="columnaDer">Nº de hospitalizados en ese momento: </p>
             </div>
+            <div class="columna">
+                <!-- Contenido de la segunda columna -->
+                <p id="columna3">Nº de Estados que aportaron datos ese día: </p>
+              </div>
         </div>
     </div>
     <script src="11api.js"></script>    
