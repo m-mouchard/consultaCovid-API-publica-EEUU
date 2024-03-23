@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <link href="plantilla.css" type="text/CSS" rel="stylesheet">
+</head>
+<body>
+    <div class="contenedor">
+        <p> Consulta los datos del covid en Estados Unidos entre las fechas 13/01/2020 y 07/03/2021</p>
+        <p class = "textoPlano">Introduce la fecha: <br>
+            <input id="fechaConsulta" type="date"><br>
+            <button id="consultarFecha" type="button"> Consultar fecha</button>
+        </p>
+        <div class="cuerpo">
+            <div class="columna">
+              <!-- Contenido de la primera columna -->
+              <p id="columnaIzq">Contenido de la primera columna: </p>
+            </div>
+            <div class="columna">
+              <!-- Contenido de la segunda columna -->
+              <p id="columnaDer">Contenido de la segunda columna: </p>
+            </div>
+        </div>
+    </div>
+    <script src="11api.js"></script>    
+</body>
+</html>
