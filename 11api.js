@@ -1,9 +1,15 @@
 window.onload = cogerBoton();
 
+//Inicializo las fechas de comienzo y fin de la API para que podamos enseñar mensaje de error
+//Aunque esto se podría haber hecho más fácilmente sacando el mensaje de error si no coincidía
+//la búsqueda con ningún valor de la API
 fechaFinAPI = new Date("03-07-2021");
 fechaInicioAPI = new Date("01-13-2020");
 
 function llamadaApi(){
+    //Esta es la manera para invocar a la api a través de la función fetch
+    //El resultado es llamar a la función jsonCargado
+    //Esta función (llamadaApi) no se invoca hasta que no se pulta el botón. 
     fetch('https://api.covidtracking.com/v1/us/daily.json')
     .then(response => response.json())
     .then(jsonCargado);
@@ -16,6 +22,12 @@ function cogerBoton(){
 
 function logicaBtnConsulta(){
     
+    //Primero verificamos con bucles if si las fechas están en el rango indicado
+    //O incluso si se ha introducido fecha o no. 
+    //Se ha tenido que hacer la función quitarHorasFecha para evitar error
+    //Error de que sean dos fechas iguales pero las horas lo eviten. 
+    //Cuando definimos fechaFinApi con new Date pone las horas a cero. a diferencia de cuando las 
+    //Metemos por el input de fecha que le pone la hora que local
     let fechaConsulta = document.getElementById("fechaConsulta").value;
     if(fechaConsulta!==""){
         let fecha = new Date(fechaConsulta);
