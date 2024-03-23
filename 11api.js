@@ -42,16 +42,27 @@ function jsonCargado(json){
         i++;
         
     } while (fechaNumerica !== json[i].date );
-    console.log("Encontrado en índice: "+i);
-    console.log(json[i].date);
-    console.log(fechaNumerica);
-    console.log("Nº de muertes en ese día   :"+json[i].deathIncrease);
-    console.log("Nº de hospitalizados en ese momento:"+json[i].hospitalizedCurrently);
-    let derHTML="";
-    derHTML = "Nº de hospitalizados en ese momento: "+json[i].hospitalizedCurrently;
-
+    
+    let numHosp = json[i].hospitalizedCurrently;
+    let numHospSalida = muestraDato("columna3", numHosp);
+    
     let htmlDer = document.getElementById("columnaDer");
+    let derHTML="Nº de hospitalizados en ese momento: "+numHospSalida;
     htmlDer.innerHTML = derHTML;
+
+    let numEstados = json[i].states;
+    let numEstadosSalida = muestraDato("columna3", numEstados);
+
+    let htmlCol3 = document.getElementById("columna3");
+    let col3HTML = "Nº de Estados que aportaron datos ese día: "+numEstadosSalida;
+    htmlCol3.innerHTML = col3HTML;
+    
+    let numMuertes = json[i].deathIncrease;
+    let numMuertesSalida = muestraDato("columnaIzq", numMuertes);
+
+    let htmlIzq = document.getElementById("columnaIzq");
+    let izqHTML = "Nº de muertes en ese día: "+numMuertesSalida;
+    htmlIzq.innerHTML = izqHTML;
 
 }
 
@@ -63,4 +74,18 @@ function cambiarFormatoFecha(fecha) {
 function quitarHorasFecha(fecha){
     let fechaSinHoras = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
     console.log(fechaSinHoras);
+}
+
+function muestraDato(nombreElemento, varApi){
+    //Nombre elemento cadena caracteres del "id" en html
+    //dato igual da error al no tener que ser cadena de caracteres
+    let inicioHTML="";
+    let htmlSalida = document.getElementById(nombreElemento);
+    if (varApi !== null) {
+        inicioHTML = varApi;
+        htmlSalida.innerHTML = inicioHTML;
+    } else {
+        inicioHTML = "0";
+    }
+    return inicioHTML;
 }
