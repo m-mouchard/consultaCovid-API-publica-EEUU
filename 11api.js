@@ -32,7 +32,6 @@ function logicaBtnConsulta(){
     if(fechaConsulta!==""){
         let fecha = new Date(fechaConsulta);
         let fechaSinHoras = quitarHorasFecha(fecha);
-        console.log(fechaSinHoras);
         if (fechaSinHoras>=fechaFinAPI || fechaSinHoras<fechaInicioAPI) {
             alert("Introduce una fecha válida (entre el 13 de enero de 2020 y el 07 de marzo de 2021");
         } else {
@@ -85,7 +84,7 @@ function cambiarFormatoFecha(fecha) {
 
 function quitarHorasFecha(fecha){
     let fechaSinHoras = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
-    console.log(fechaSinHoras);
+    return fechaSinHoras;
 }
 
 function muestraDato(nombreElemento, varApi){
