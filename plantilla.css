@@ -69,12 +69,47 @@ body {
   }
   
 .columna {
+    position: relative;
     flex: 1; /* Hace que las columnas tengan el mismo ancho */
     padding: 10px; /* Añade un espacio alrededor del contenido */
     border: 1px solid #ccc; /* Añade un borde para separar las columnas (opcional) */
 }
 
 .columna p{
+    position: relative;
     font-size: 16px;
     color: #fff;
 }
+
+.spinner-container {
+    display: none; /* Oculta el contenedor inicialmente */
+    position: absolute; /* Posición fija en la ventana del navegador */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+    font-size: 1em;
+    color: #3498db;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3; /* Grosor y color del borde */
+    border-top: 4px solid #3498db; /* Color del borde superior */
+    border-radius: 50%; /* Forma circular */
+    width: 20px; /* Tamaño */
+    height: 20px; /* Tamaño */
+    animation: spin 1s linear infinite; /* Animación de rotación */
+    position: absolute; /* Posición absoluta dentro del contenedor */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    margin-top: -20px; /* Ajusta el margen para centrar verticalmente */
+    margin-left: -20px; /* Ajusta el margen para centrar horizontalmente */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); } /* Inicia sin rotación */
+    100% { transform: rotate(360deg); } /* Completa una rotación completa */
+  }
+  

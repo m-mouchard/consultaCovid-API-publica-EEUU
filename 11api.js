@@ -20,8 +20,33 @@ function cogerBoton(){
     btnConsultar.addEventListener("click",logicaBtnConsulta);
 }
 
+async function pausaCodigo (){
+    await new Promise(() => {
+        setTimeout(() => {
+                let ruedaCargando = document.getElementsByClassName("spinner-container")                
+                for (let i = 0; i < ruedaCargando.length; i++) {
+                    ruedaCargando[i].style.display = "none";
+                }
+                llamadaApi();
+        }, 0.5*1000);
+    });
+}
+
 function logicaBtnConsulta(){
     
+    //Inicializamos el html para cuando hay más de una búsqueda y se vuelve a pulsar el botón, se reinicialice
+    //los valores para que de mejor UX
+    let htmlDer = document.getElementById("columnaDer");
+    let derHTML="Nº de hospitalizados en ese momento: ";
+    htmlDer.innerHTML = derHTML;
+
+    let htmlCol3 = document.getElementById("columna3");
+    let col3HTML = "Nº de Estados que aportaron datos ese día: ";
+    htmlCol3.innerHTML = col3HTML;
+
+    let htmlIzq = document.getElementById("columnaIzq");
+    let izqHTML = "Nº de muertes en ese día: ";
+    htmlIzq.innerHTML = izqHTML;
     //Primero verificamos con bucles if si las fechas están en el rango indicado
     //O incluso si se ha introducido fecha o no. 
     //Se ha tenido que hacer la función quitarHorasFecha para evitar error
@@ -35,7 +60,11 @@ function logicaBtnConsulta(){
         if (fechaSinHoras>=fechaFinAPI || fechaSinHoras<fechaInicioAPI) {
             alert("Introduce una fecha válida (entre el 13 de enero de 2020 y el 07 de marzo de 2021");
         } else {
-            llamadaApi();
+                let ruedaCargando = document.getElementsByClassName("spinner-container")
+                for (let i = 0; i < ruedaCargando.length; i++) {
+                    ruedaCargando[i].style.display = "block";
+                }
+                pausaCodigo();
         }
     } else {
         alert("Introduce una fecha");
