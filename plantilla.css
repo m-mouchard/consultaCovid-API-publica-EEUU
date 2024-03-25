@@ -8,16 +8,12 @@ body {
     display: block;
     justify-content: center;
     align-items: flex-start;
-    height: 50vh;
+    height: 100vh;
     font-size: 16px;
     border-color: aqua;
     border-width: 1px;
     border-style: solid;
     border-radius: 5px;
-}
-
-.contenedor:hover{
-    background-color: rgba(101, 149, 133, 0.501);
 }
 
 .contenedor p{
@@ -113,3 +109,6 @@ body {
     100% { transform: rotate(360deg); } /* Completa una rotación completa */
   }
   
+  .contenedor .footer{
+    color: #fff;
+  }
